@@ -168,14 +168,14 @@ const DashboardPage: React.FC<{ student: Student; onLogout: () => void; }> = ({ 
     <div className="w-full animate-fade-in">
       <header className="flex items-center justify-between mb-8 pb-4 border-b border-slate-700">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-white">
-            مرحباً بك، <span className="text-blue-400">{student.studentName}</span>
+          <h1 className="text-2xl md:text-3xl font-bold text-white font-serif-display">
+            أهلاً بك، <span className="text-blue-400">{student.studentName}</span>
           </h1>
           <p className="text-slate-400">المحتوى الدراسي المتاح لـ <span className="font-semibold text-slate-300">{student.academicYear}</span></p>
         </div>
         <button
           onClick={onLogout}
-          className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"
+          className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300"
         >
           تسجيل الخروج
         </button>
@@ -201,7 +201,7 @@ const DashboardPage: React.FC<{ student: Student; onLogout: () => void; }> = ({ 
                 <>
                     {subjects.length > 1 && (
                         <div className="mb-6 flex flex-wrap gap-3 items-center border-b border-slate-700 pb-4">
-                            <h2 className="text-slate-300 font-semibold mr-2">المادة:</h2>
+                            <h2 className="text-slate-300 font-semibold ml-2">المادة:</h2>
                             {subjects.map(subject => (
                                 <button key={subject} onClick={() => setActiveSubject(subject)} className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-300 ${activeSubject === subject ? 'bg-blue-600 text-white shadow-md' : 'bg-slate-700 text-slate-300 hover:bg-slate-600'}`}>
                                     {subject}
@@ -219,7 +219,7 @@ const DashboardPage: React.FC<{ student: Student; onLogout: () => void; }> = ({ 
                                         <div className="relative aspect-video bg-slate-800/70 flex items-center justify-center">
                                             {lecture.thumbnailUrl ? <img src={lecture.thumbnailUrl} alt={lecture.lectureName} className="w-full h-full object-cover" /> : <PlayIcon />}
                                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><PlayIcon /></div>
-                                            <span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs font-bold py-1 px-2 rounded">محاضرة</span>
+                                            <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs font-bold py-1 px-2 rounded">محاضرة</span>
                                         </div>
                                         <div className="p-4"><h3 className="font-semibold text-white truncate group-hover:text-blue-400 transition-colors">{lecture.lectureName}</h3></div>
                                     </div>);
@@ -228,10 +228,10 @@ const DashboardPage: React.FC<{ student: Student; onLogout: () => void; }> = ({ 
                                 const downloadUrl = getDownloadUrl(lecture.lectureLink);
                                 return (
                                     <div key={index} className="group bg-slate-900 rounded-lg border border-slate-700 overflow-hidden shadow-lg transition-all duration-300 flex flex-col">
-                                        <div className="relative aspect-video bg-slate-800/70 flex items-center justify-center"><FileIcon /><span className="absolute bottom-2 right-2 bg-black/60 text-white text-xs font-bold py-1 px-2 rounded">ملف</span></div>
+                                        <div className="relative aspect-video bg-slate-800/70 flex items-center justify-center"><FileIcon /><span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs font-bold py-1 px-2 rounded">ملف</span></div>
                                         <div className="p-4 flex flex-col flex-grow justify-between">
                                             <h3 className="font-semibold text-white truncate mb-3">{lecture.lectureName}</h3>
-                                            <div className="flex items-center justify-end space-x-3 rtl:space-x-reverse">
+                                            <div className="flex items-center justify-end space-x-3">
                                                 <a href={openUrl} target="_blank" rel="noopener noreferrer" title="فتح الملف" className="text-slate-400 hover:text-blue-400 transition-colors p-2 rounded-full hover:bg-slate-700"><OpenExternalIcon /></a>
                                                 <a href={downloadUrl} download={lecture.lectureName} title="تحميل الملف" className="text-slate-400 hover:text-green-400 transition-colors p-2 rounded-full hover:bg-slate-700"><DownloadIcon /></a>
                                             </div>
@@ -240,7 +240,7 @@ const DashboardPage: React.FC<{ student: Student; onLogout: () => void; }> = ({ 
                             }
                         })}
                         </div>
-                    ) : (<p className="text-center text-slate-400 py-8">{lectures.length > 0 ? 'لا يوجد محتوى لهذه المادة.' : 'لا يوجد محاضرات متاحة لهذه السنة الدراسية حتى الآن.'}</p>)}
+                    ) : (<p className="text-center text-slate-400 py-8">{lectures.length > 0 ? 'لا يوجد محتوى لهذه المادة.' : 'لا توجد محاضرات متاحة لهذه السنة الدراسية حتى الآن.'}</p>)}
                 </>
             )}
             {currentView === 'quizzes' && (
