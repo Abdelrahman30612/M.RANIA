@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 interface LoginPageProps {
@@ -35,8 +34,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
     <div className="flex flex-col items-center justify-center w-full">
         <div className="w-full max-w-md bg-slate-800/50 backdrop-blur-sm rounded-2xl shadow-2xl shadow-blue-500/10 p-8 border border-slate-700">
             <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-white mb-2">M. Rania Mustafa</h1>
-                <p className="text-slate-400">Saisissez votre code pour accéder au contenu de vos études.</p>
+                <h1 className="text-4xl font-bold text-white mb-2 font-serif-display">M. Rania Mustafa</h1>
+                <p className="text-slate-400">أدخل الكود الخاص بك للوصول الى محتواك الدراسى</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -60,7 +59,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-blue-500"
+                    className="w-full bg-blue-700 hover:bg-blue-800 disabled:bg-slate-600 disabled:cursor-not-allowed text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-blue-500"
                 >
                     {isLoading ? (
                         <div className="flex items-center justify-center">
@@ -68,10 +67,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
-                            جاري التحقق...
+                            جار التحقق...
                         </div>
                     ) : (
-                        'دخـــول'
+                        'دخول'
                     )}
                 </button>
             </form>
